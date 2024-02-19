@@ -25,7 +25,7 @@ quantity = 100000
 
 nwe_product = Product.add_product(title, description, price, quantity, class_object_category_lst[0].products)
 
-if nwe_product:
+if type(nwe_product) != list:
     class_object_category_lst[0].add_product(nwe_product)
 
 print(class_object_category_lst[0].product)
