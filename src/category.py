@@ -14,13 +14,16 @@ class Category:
         self.__products = products
         Category.total_number_categories += 1
 
-    def add_product(self, title, description, price, quantity):
-        product = Product(title, description, price, quantity)
-        self.__products.append(product)
+    def add_product(self, product_object: list):
+        self.__products.append(product_object)
         self.total_number_unique_products = len(self.__products)
 
     @property
-    def printing_product(self):
+    def products(self):
+        return self.__products
+
+    @property
+    def product(self):
         q = []
         for i in self.__products:
             str_print = f"{i.title}, {i.price}, Остаток: {i.quantity}"

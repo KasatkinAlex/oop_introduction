@@ -18,6 +18,14 @@ for i in file_lst:
     object_class_category = Category(i["name"], i["description"], class_object_product_lst)
     class_object_category_lst.append(object_class_category)
 
-print(class_object_category_lst[0].printing_product)
-print(Category.total_number_categories)
+title = "Iphone 1"
+description = "128"
+price = 14000
+quantity = 100000
 
+nwe_product = Product.add_product(title, description, price, quantity, class_object_category_lst[0].products)
+
+if nwe_product:
+    class_object_category_lst[0].add_product(nwe_product)
+
+print(class_object_category_lst[0].product)
