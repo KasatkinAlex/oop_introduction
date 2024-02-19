@@ -48,4 +48,8 @@ class Product:
             else:
                 self.__price = new_price
 
+    @price.deleter
+    def price(self):
+        self.__price = 0
+
 

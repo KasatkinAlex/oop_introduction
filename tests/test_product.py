@@ -29,3 +29,5 @@ def test_price(product_test):
     assert product_test.price == 100
     product_test.price = 0
     assert product_test.price == 100
+    del product_test.price
+    assert product_test.price == 0
