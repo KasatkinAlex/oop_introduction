@@ -29,7 +29,8 @@ class Product:
                 i.quantity += product.quantity
                 if product.price > i.price:
                     i.price = product.price
-                return print("Такой товар уже есть, его количество добавили в список")
+                print("Такой товар уже есть, его количество добавили в список")
+                return lst_product
         return product
 
     @property
