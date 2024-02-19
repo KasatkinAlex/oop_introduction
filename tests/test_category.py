@@ -15,7 +15,7 @@ def test_init_category(category_test):
 
 
 def test_add_product(category_test):
-    category_test.add_product(["banana", "big", 52.2, 100])
+    category_test.add_product(Product("banana", "big", 52.2, 100))
     assert category_test.total_number_unique_products == 2
 
 

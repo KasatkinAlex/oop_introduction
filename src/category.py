@@ -1,4 +1,6 @@
 from src.product import Product
+
+
 class Category:
     """Класс для предоставления категорий"""
     title: str
@@ -14,9 +16,9 @@ class Category:
         self.__products = products
         Category.total_number_categories += 1
 
-    def add_product(self, product_object: list):
+    def add_product(self, product_object):
         self.__products.append(product_object)
-        self.total_number_unique_products = len(self.__products)
+        self.total_number_unique_products = len(set(self.__products))
 
     @property
     def products(self):
