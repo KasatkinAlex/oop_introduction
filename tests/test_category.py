@@ -20,4 +20,8 @@ def test_add_product(category_test):
 
 
 def test_printing_product(category_test):
-    assert category_test.product == ["apple, 78.2, Остаток: 120"]
+    assert category_test.product == ["apple, 78.2, Остаток: 120 шт"]
+
+
+def test_str(category_test):
+    assert str(category_test) == "Fruit, количество продуктов: 120 шт"

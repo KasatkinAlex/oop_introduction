@@ -28,8 +28,17 @@ class Category:
     def product(self):
         q = []
         for i in self.__products:
-            str_print = f"{i.title}, {i.price}, Остаток: {i.quantity}"
-            q.append(str_print)
+            q.append(str(i))
         return q
+
+    def __str__(self):
+        return f"{self.title}, количество продуктов: {len(self)} шт"
+
+    def __len__(self):
+        total_number = 0
+        for i in self.__products:
+            total_number += i.quantity
+        return total_number
+
 
 
