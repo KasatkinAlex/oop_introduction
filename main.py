@@ -21,7 +21,7 @@ for i in file_lst:
 title = "Iphone 1"
 description = "128"
 price = 14000
-quantity = 100000
+quantity = 1
 
 nwe_product = Product.add_product(title, description, price, quantity, class_object_category_lst[0].products)
 
@@ -29,3 +29,5 @@ if type(nwe_product) != list:
     class_object_category_lst[0].add_product(nwe_product)
 
 print(class_object_category_lst[0].product)
+print(class_object_category_lst[0])
+

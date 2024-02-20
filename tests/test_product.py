@@ -7,6 +7,13 @@ from src.category import Category
 def product_test():
     return Product("apple", "red apples", 78.2, 120)
 
+def test_add(product_test):
+    product = Product("banana", "red", 50, 100)
+    assert product_test + product == 14384
+
+def test_str(product_test):
+    assert str(product_test) == "apple, 78.2, Остаток: 120 шт"
+
 
 def test_init_product(product_test):
     assert product_test.title == "apple"
