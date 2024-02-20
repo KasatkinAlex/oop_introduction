@@ -1,6 +1,7 @@
 from src.utils import *
 from src.product import Product
 from src.category import Category
+from src.categoru_iter import CategoryIter
 
 
 file_lst = read_json("products.json")
@@ -28,6 +29,8 @@ nwe_product = Product.add_product(title, description, price, quantity, class_obj
 if type(nwe_product) != list:
     class_object_category_lst[0].add_product(nwe_product)
 
-print(class_object_category_lst[0].product)
-print(class_object_category_lst[0])
-
+# print(class_object_category_lst[0].product)
+# print(class_object_category_lst[0])
+q = CategoryIter(category_object=class_object_category_lst[0])
+for i in q:
+    print(i)
