@@ -1,21 +1,25 @@
 class Product:
-    """Класс для предоставления продуктов"""
-    title: str
-    description: str
-    price: float
-    quantity: int
+    """Базовый класс для предоставления продуктов"""
+    title: str  # имя
+    description: str  # описание
+    price: float  # цена
+    quantity: int  # остаток
+    colour: str
 
-    def __init__(self, title, description, price, quantity):
+    def __init__(self, title, description, price, quantity, colour=None):
         self.title = title
         self.description = description
         self.__price = price
         self.quantity = quantity
+        self.colour = colour
 
     def __str__(self):
         return f"{self.title}, {self.__price}, Остаток: {self.quantity} шт"
 
     def __add__(self, other):
-        return (self.__price * self.quantity) + (other.__price * other.quantity)
+        if type(self) == type(other):
+            return (self.__price * self.quantity) + (other.__price * other.quantity)
+        return TypeError
 
     @classmethod
     def add_product(cls, title, description, price, quantity, lst_product: []):
