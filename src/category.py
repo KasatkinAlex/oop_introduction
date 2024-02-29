@@ -17,8 +17,10 @@ class Category:
         Category.total_number_categories += 1
 
     def add_product(self, product_object):
-        self.__products.append(product_object)
+        if isinstance(product_object, Product):
+            self.__products.append(product_object)
         self.total_number_unique_products = len(set(self.__products))
+        return "товар не является объектом Product"
 
     @property
     def products(self):

@@ -15,8 +15,14 @@ def test_init_category(category_test):
 
 
 def test_add_product(category_test):
+    """Тест на добавление товара Product"""
     category_test.add_product(Product("banana", "big", 52.2, 100))
     assert category_test.total_number_unique_products == 2
+
+
+def test_add_product_now(category_test):
+    """Тест на добавление товара не обьект класса Product"""
+    assert category_test.add_product(1) == "товар не является объектом Product"
 
 
 def test_printing_product(category_test):
