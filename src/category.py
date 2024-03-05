@@ -1,7 +1,8 @@
 from src.product import Product
+from src.abstract_mixin_class import MixinRepr
 
 
-class Category:
+class Category(MixinRepr):
     """Класс для предоставления категорий"""
     title: str
     description: str
@@ -15,6 +16,7 @@ class Category:
         self.description = description
         self.__products = products
         Category.total_number_categories += 1
+        super().__init__()
 
     def add_product(self, product_object):
         if isinstance(product_object, Product):
@@ -43,4 +45,5 @@ class Category:
         return total_number
 
 
+c = Category(1, 2, 3)
 

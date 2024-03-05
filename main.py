@@ -14,6 +14,7 @@ for i in file_lst:
 
     for product in i["products"]:
         object_class_product = Product(product["name"], product["description"], product["price"], product["quantity"])
+        # print(object_class_product.__repr__())
         class_object_product_lst.append(object_class_product)
 
     object_class_category = Category(i["name"], i["description"], class_object_product_lst)
@@ -31,6 +32,10 @@ if type(nwe_product) != list:
 
 # print(class_object_category_lst[0].product)
 # print(class_object_category_lst[0])
-q = CategoryIter(category_object=class_object_category_lst[0])
-for i in q:
-    print(i)
+# q = CategoryIter(category_object=class_object_category_lst[0])
+# for i in q:
+#     print(i)
+
+product_1 = Product("name123", "discription", 10000, 2)
+# print(product_1.__repr__())
+# print(class_object_category_lst[0].__repr__())

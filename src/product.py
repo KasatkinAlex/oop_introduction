@@ -1,4 +1,7 @@
-class Product:
+from src.abstract_mixin_class import AbstractProduct, MixinRepr
+
+
+class Product(MixinRepr, AbstractProduct):
     """Базовый класс для предоставления продуктов"""
     title: str  # имя
     description: str  # описание
@@ -12,6 +15,7 @@ class Product:
         self.__price = price
         self.quantity = quantity
         self.colour = colour
+        super().__init__()
 
     def __str__(self):
         return f"{self.title}, {self.__price}, Остаток: {self.quantity} шт"
@@ -62,3 +66,6 @@ class Product:
     @price.deleter
     def price(self):
         self.__price = 0
+
+
+p = Product(1, 2, 3, 4)
