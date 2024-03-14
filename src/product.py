@@ -37,6 +37,9 @@ class Product(MixinRepr, AbstractProduct):
         :param lst_product: список товаров в категории
         :return: обьект класса или изменение остатка
         """
+        if quantity <= 0 or not isinstance(quantity, int):
+            print("товар с нулевым количеством не может быть добавлен")
+            raise ValueError
         product = cls(title, description, price, quantity)
         for i in lst_product:
             if product.title == i.title:
@@ -68,4 +71,4 @@ class Product(MixinRepr, AbstractProduct):
         self.__price = 0
 
 
-p = Product(1, 2, 3, 4)
+p = Product(1, 2, 3, 0)
