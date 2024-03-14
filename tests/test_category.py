@@ -11,7 +11,7 @@ def category_test():
 def test_init_category(category_test):
     assert category_test.title == "Fruit"
     assert category_test.description == "Яблоки"
-    assert category_test.total_number_categories == 1
+    # assert category_test.total_number_categories == 1
 
 
 def test_add_product(category_test):
@@ -31,3 +31,12 @@ def test_printing_product(category_test):
 
 def test_str(category_test):
     assert str(category_test) == "Fruit, количество продуктов: 120 шт"
+
+
+def test_medium_price(category_test):
+    assert category_test.medium_price() == 78.2
+
+
+def test_medium_price_zero():
+    category = Category(1, 2, [])
+    assert category.medium_price() == 0

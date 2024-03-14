@@ -44,6 +44,17 @@ class Category(MixinRepr):
             total_number += i.quantity
         return total_number
 
+    def medium_price(self):
+        """ Подсчитывает средний ценник всех товаров """
+        try:
+            total_price = 0
+            for i in self.__products:
+                total_price += i.price
+            medium_price = total_price/len(self.__products)
+        except ZeroDivisionError:
+            medium_price = 0
+        return medium_price
+
 
 c = Category(1, 2, 3)
 
