@@ -38,8 +38,7 @@ class Product(MixinRepr, AbstractProduct):
         :return: обьект класса или изменение остатка
         """
         if quantity <= 0 or not isinstance(quantity, int):
-            print("товар с нулевым количеством не может быть добавлен")
-            raise ValueError
+            raise ValueError("товар с нулевым количеством не может быть добавлен")
         product = cls(title, description, price, quantity)
         for i in lst_product:
             if product.title == i.title:

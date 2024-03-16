@@ -19,10 +19,14 @@ class Category(MixinRepr):
         super().__init__()
 
     def add_product(self, product_object):
-        if isinstance(product_object, Product):
+        """ Добавление товара в категорию """
+        if not isinstance(product_object, Product):
+            return "товар не является объектом Product"
+        elif product_object.quantity <= 0:
+            raise ValueError("товар с нулевым количеством не может быть добавлен")
+        else:
             self.__products.append(product_object)
-        self.total_number_unique_products = len(set(self.__products))
-        return "товар не является объектом Product"
+            self.total_number_unique_products = len(set(self.__products))
 
     @property
     def products(self):
@@ -56,5 +60,7 @@ class Category(MixinRepr):
         return medium_price
 
 
-c = Category(1, 2, 3)
-
+if __name__ == "__main__":
+    category = Category("Fruit", "Яблоки", [Product("apple", "red apples", 78.2, 120)])
+    product = Product("apple", "big", 52.2, 0)
+    category.add_product(product)
