@@ -25,6 +25,13 @@ def test_add_product_now(category_test):
     assert category_test.add_product(1) == "товар не является объектом Product"
 
 
+def test_add_product_zero(category_test):
+    """Тест на добавление товара с нулевым количеством, обьект класса Product"""
+    product = Product("apple", "big", 52.2, 0)
+    with pytest.raises(ValueError, match="товар с нулевым количеством не может быть добавлен"):
+        category_test.add_product(product)
+
+
 def test_printing_product(category_test):
     assert category_test.product == ["apple, 78.2, Остаток: 120 шт"]
 
